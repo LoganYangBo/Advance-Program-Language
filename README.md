@@ -3,8 +3,8 @@
 ## p1:
 
 The context-free grammar for the targeted language is as follows: 
-  **<program> ::= <unitList>
-  <unitList> ::= <unit><unitList> | <unit>
+  **\<program> ::= \<unitList>
+  \<unitList> ::= \<unit>\<unitList> | \<unit>
   <unit> ::= <decl> | <stmt>
   <decl> ::= <varDecl> ; | <varDecl> = <expr> ;
   <varDecl> ::= int ident | float ident
