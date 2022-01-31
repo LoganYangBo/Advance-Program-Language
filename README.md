@@ -3,13 +3,19 @@
 ## p1:
 
 The context-free grammar for the targeted language is as follows: \n
-  **\<program> ::= \<unitList>\n
-  \<unitList> ::= \<unit>\<unitList> | \<unit>\n
-  \<unit> ::= \<decl> | \<stmt>\n
-  \<decl> ::= \<varDecl> ; | \<varDecl> = \<expr> ;\n
-  \<varDecl> ::= int ident | float ident\n
-  \<stmt> ::= ident = \<expr> ; | print \<expr> ;\n
-  \<expr> ::= intconst | floatconst | ident | \<expr> + \<expr> | ( \<expr> )**\n
+  \<program> ::= \<unitList>
+  
+  \<unitList> ::= \<unit>\<unitList> | \<unit>
+  
+  \<unit> ::= \<decl> | \<stmt>
+  
+  \<decl> ::= \<varDecl> ; | \<varDecl> = \<expr> ;
+  
+  \<varDecl> ::= int ident | float ident
+  
+  \<stmt> ::= ident = \<expr> ; | print \<expr> ;
+  
+  \<expr> ::= intconst | floatconst | ident | \<expr> + \<expr> | ( \<expr> )
   
 The type checker to check for the following conditions:
   1) Any variable appearing in an <expr> must have a declaration in some earlier <decl>. For example, int x = 1; int y = x + w; is not allowed because w is not declared. As another example, int x = x+1; is also not allowed (the x in x+1 is not declared).
