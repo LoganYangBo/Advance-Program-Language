@@ -27,16 +27,23 @@ The type checker to check for the following conditions:
 ## p2:
 
 The context-free grammar for the targeted language is as follows: \n
+  
 \<program> ::= \<unitList>
+  
 \<unitList> ::= \<unit><unitList> | \<unit>
+  
 \<unit> ::= \<decl> | \<stmt>
+  
 \<decl> ::= \<varDecl> ; | \<varDecl> = \<expr> ; \<varDecl> ::= int ident | float ident
+  
 \<stmt> ::= ident = \<expr> ; | print \<expr> ;
 | if ( \<condExpr> ) \<stmt>
 | if ( \<condExpr> ) \<stmt> else \<stmt> | while ( \<condExpr> ) \<stmt>
 | { \<unitList> }
+  
 \<expr> ::= intconst | floatconst | ident
 | \<binaryExpr> | - \<expr> | ( \<expr> ) | readint | readfloat
+  
 \<binaryExpr> ::= \<expr> + \<expr> | \<expr> - \<expr> | \<expr> * \<expr> | \<expr> / \<expr> \<condExpr> ::= \<expr> \< <expr> | \<expr> <= \<expr> | \<expr> > \<expr> | \<expr> >= \<expr>
 | \<expr> == \<expr> | \<expr> != \<expr> | \<condExpr> && \<condExpr> | \<condExpr> || \<condExpr> | ! \<condExpr> | ( \<condExpr> )
   
