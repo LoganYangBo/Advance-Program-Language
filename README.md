@@ -44,7 +44,9 @@ The context-free grammar for the targeted language is as follows: \n
 \<expr> ::= intconst | floatconst | ident
 | \<binaryExpr> | - \<expr> | ( \<expr> ) | readint | readfloat
   
-\<binaryExpr> ::= \<expr> + \<expr> | \<expr> - \<expr> | \<expr> * \<expr> | \<expr> / \<expr> \<condExpr> ::= \<expr> \< <expr> | \<expr> <= \<expr> | \<expr> > \<expr> | \<expr> >= \<expr>
+\<binaryExpr> ::= \<expr> + \<expr> | \<expr> - \<expr> | \<expr> * \<expr> | \<expr> / \<expr> 
+  
+\<condExpr> ::= \<expr> \< <expr> | \<expr> <= \<expr> | \<expr> > \<expr> | \<expr> >= \<expr>
 | \<expr> == \<expr> | \<expr> != \<expr> | \<condExpr> && \<condExpr> | \<condExpr> || \<condExpr> | ! \<condExpr> | ( \<condExpr> )
   
 The type checker to check for the following conditions:
