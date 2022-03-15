@@ -63,3 +63,18 @@ However, if we replaced z + 3 with q + 3 , the code would not type check.
 7) The operand of a unity minus operator can be either INT or FLOAT. The result of the operation is that same type.
 8) The evaluation of a readint expression produced a value of type INT. The evaluation of a readfloat expression produces a value of type FLOAT.
 9) Both operands of a comparison operator < <= > >= == != must be of the same type (either INT or FLOAT).
+
+## P3:
+  
+  The goal of this project is to build an interpreter for the language from Project 2 (with some minor changes to the language, as defined below). The semantics to be implemented was discussed in class when we considered the definition of operational semantics. Your implementation will use the code for AST building and type checking from Project 2, with some minor changes to Interpreter.java . In your interpreter, first perform the type checking from Project 2 and exit with error code EXIT_STATIC_CHECKING_ERROR if the checking fails. If the checking succeeds, execute the program.
+  
+  To simplify the project, the following restriction will be imposed on all input programs: no two variables have the same name. This also applies to variables that are in different blocks: so, code such as int z = ...; { ... { int z = ...; } } is never going to be part of a valid input program. You do not have to check whether this restriction is satisfied by the input program: just assume that it is and implement your interpreter under this assumption.
+  
+  Details:
+The semantics was described in class. A few additional details:
+1) You have to catch run-time errors for “use of unintialized variable” and “division by zero” and then exit the interpreter with the corresponding error codes.
+2) readint and readfloat expressions should read from UNIX stdin and produce a value of the corresponding type. If this reading cannot be performed successfully, the interpreter should exit with error code EXIT_FAILED_STDIN_READ . A simple way to implement this functionality is to use a Scanner object from java.util : e.g., at the very beginning of program execution create an object Scanner s = new Scanner(System.in) and then call s.nextLong() and s.nextDouble() whenever you need to evaluate a readint or readfloat expression. When executing the interpreter from the command line, you can put the input data in some file datafile and then do ./plan programfile < datafile
+3) Type INT in our language should be implemented by a Java long type; type FLOAT in our language should be implemented by a Java double type.
+you can implement the state 𝛔𝛔 with one map from variable names to values. There is no need to use a tree of maps. At the beginning of execution, the map is empty.
+5) The evaluation of boolean && and || operators should use short-circuit semantics.
+6) A natural way to implement the checking is to add to each expression class a method evaluate which takes as input a reference to the state, evaluates the expression, and returns the resulting value. Similarly, for each statement class you can use a method execute which takes as input a reference to the state, executes the statement, and as a result changes the state.
